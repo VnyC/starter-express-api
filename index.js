@@ -1,13 +1,13 @@
 const express = require('express');
 const knex = require('knex');
 const { json, urlencoded } = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
 
 app.use(urlencoded({type:false}));
 app.use(json());
-// app.use(cors());
+app.use(cors());
 
 const pgdb = knex({
     client: 'pg',
