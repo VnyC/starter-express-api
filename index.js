@@ -12,7 +12,7 @@ app.use(cors());
 const pgdb = knex({
     client: 'pg',
     connection: {
-      connectionString: "postgres://vinayakcprofileadmin:VnyC@1234$@vinayakcprofile.postgres.database.azure.com/portal",
+      connectionString: "postgres://vinayakcprofileadmin:VnyC@1234$@vinayakcprofile.postgres.database.azure.com/postgres",
         ssl: {
         rejectUnauthorized: false
       }
@@ -74,7 +74,7 @@ app.get('/getdata', (req, res) => {
       } else {
         var que = {head:head,type:type};
       }
-    pgdb('profilepage')
+    pgdb('portal')
         .where(que)
         .then(data => {
             res.json(data)
