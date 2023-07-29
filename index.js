@@ -12,7 +12,10 @@ app.use(cors());
 const pgdb = knex({
     client: 'pg',
     connection: {
-      connectionString: "postgres://vinayakcprofileadmin:VnyC@1234$@vinayakcprofile.postgres.database.azure.com/postgres"
+      connectionString: "postgres://vinayakcprofileadmin:VnyC@1234$@vinayakcprofile.postgres.database.azure.com/portal",
+        ssl: {
+        rejectUnauthorized: false
+      }
     }
   });
 
