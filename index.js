@@ -26,14 +26,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getall', (req, res) => {
-    pgdb('profilepage').then(data => {
+    pgdb('portal').then(data => {
         res.json(data);
     });
 });
 
 app.put('/putdata', (req, res) => {
     var body = req.body;
-        pgdb('profile')
+        pgdb('portal')
         .where({head:body.head, type:body.type})
         .update({
             title:body.title,
@@ -50,7 +50,7 @@ app.put('/putdata', (req, res) => {
 
 app.post('/postdata', (req, res) => {
     var body = req.body;
-        pgdb('profile')
+        pgdb('portal')
         .insert({
             head:body.head,
             type:body.type,
