@@ -20,7 +20,6 @@ const pgdb = knex({
   });
 
 
-
 app.get('/', (req, res) => {
     res.send("It works 8, goto vinayakc.netlify.app");
 });
