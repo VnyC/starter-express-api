@@ -21,7 +21,7 @@ const pgdb = knex({
 
 
 app.get('/', (req, res) => {
-    res.send("It works 8, goto vinayakc.netlify.app");
+    res.send("It works, go to vinayakc.netlify.app");
 });
 
 app.get('/getall', (req, res) => {
@@ -32,7 +32,7 @@ app.get('/getall', (req, res) => {
 
 app.put('/putdata', (req, res) => {
     var body = req.body;
-        pgdb('portal')
+        pgdb('web')
         .where({head:body.head, type:body.type})
         .update({
             title:body.title,
@@ -49,7 +49,7 @@ app.put('/putdata', (req, res) => {
 
 app.post('/postdata', (req, res) => {
     var body = req.body;
-        pgdb('portal')
+        pgdb('web')
         .insert({
             head:body.head,
             type:body.type,
@@ -73,7 +73,7 @@ app.get('/getdata', (req, res) => {
       } else {
         var que = {head:head,type:type};
       }
-    pgdb('portal')
+    pgdb('web')
         .where(que)
         .then(data => {
             res.json(data)
