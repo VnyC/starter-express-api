@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getall', (req, res) => {
-    pgdb('portal').then(data => {
+    pgdb('web').then(data => {
         res.json(data);
     });
 });
